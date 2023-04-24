@@ -1,0 +1,23 @@
+.img-responsive {
+    height: 50px;
+}
+
+.dark-nav{
+    background-color: brown;
+}
+.margin{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#container {
+    position: relative;
+}
+#copyright {
+    
+    position: relative;
+    bottom: 0;
+}
+.body{background-color:#eee}
+.time{font-size: 9px !important}
+.socials i{margin-right: 14px;font-size: 17px;color: #d2c8c8;cursor: pointer}
+.feed-image img{width: 100%;height: auto}   

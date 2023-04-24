@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+   <!--Javascript code for loading in the NavBar.html page. This code is at the top of every single standard page-->
+   <script>
+      $(function() {
+         $("#IncludeNavBar").load("NavBar.html");
+      });
+   </script>
+   <script>
+      $(function() {
+         $("#IncludeFooter").load("Footer.html");
+      });
+   </script>
+   <title>EditProfile</title>
+   <!--Following link is used for BootStrap implementation-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   <!--Following link is used for CSS in index.css-->
+   <link rel="stylesheet" type="text/css" href="Styles/index.css">
+</head>
+<body>
+   <div id="IncludeNavBar"></div>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12" style="padding-right: 20px;">
+            <form action="/editProfile" method="post">
+               <b style="font-size: 35px;">Personal Info</b>
+               <div class="mb-3">
+                  <label for="newname" class="form-label">Change Name To:</label>
+                  <input type="text" id="newname" name="newname" class="form-control" value="<%=user.name%>">
+               </div>
+               <div class="mb-3">
+                  <label for="displayemail" class="form-label">Email to Display:</label>
+                  <input type="text" id="displayemail" name="displayemail" class="form-control" value="<%=user.displayemail%>">
+               </div>
+               <div class="mb-3">
+                  <label for="location" class="form-label">Location:</label>
+                  <input type="text" id="location" name="location" class="form-control" value="<%=user.location%>">
+               </div>
+               <div class="mb-3">
+                  <label for="fitnessgoal" class="form-label">Fitness Goal:</label>
+                  <input type="text" id="fitnessgoal" name="fitnessgoal" class="form-control" value="<%=user.fitnessgoal%>">
+               </div>
+               <div class="mb-3">
+                  <label for="favoriteexercise" class="form-label">Favorite Excersize:</label>
+                  <input type="text" id="favoriteexercise" name="favoriteexercise" class="form-control" value="<%=user.favoriteexercise%>">
+               </div>
+               <div class="mb-3">
+                  <label for="bio" class="form-label">Bio:</label>
+                  <input type="text" id="bio" name="bio" class="form-control" value="<%=user.bio%>">
+               </div>
+               <hr>
+               <b style="font-size: 35px;">Social Media Accounts</b>
+               <div class="mb-3">
+                  <div class="mb-3">
+                     <label for="facebook" class="form-label">Facebook Username:</label>
+                     <input type="text" id="facebook" name="facebook" class="form-control" value=<%=user.facebook%>>
+                  </div>
+                  <div class="mb-3">
+                     <label for="instagram" class="form-label">Instagram Username:</label>
+                     <input type="text" id="instagram" name="instagram" value=<%=user.instagram%> class="form-control">
+                  </div>
+                  <div class="mb-3">
+                     <label for="twitter" class="form-label">Twitter Username:</label>
+                     <input type="text" id="twitter" name="twitter" value=<%=user.twitter%> class="form-control">
+                  </div>
+                  <div class="mb-3">
+                     <label for="snapchat" class="form-label">Snapchat Username:</label>
+                     <input type="text" id="snapchat" name="snapchat" value=<%=user.snapchat%> class="form-control">
+                  </div>
+                  <div class="mb-3">
+                     <label for="spotify" class="form-label">Spotify Username:</label>
+                     <input type="text" id="spotify" name="spotify" value=<%=user.spotify%> class="form-control">
+                  </div>
+                   
+               </div>
+               <br>
+               <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+         </div>
+         <br>
+      </div>
+   </div>
+   <br>
+    <div id="IncludeFooter"></div>
+    <!--<div>Hello World!</div>-->
+    <!--Following script is used for BootStrap implementation-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

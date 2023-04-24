@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!--Javascript code for loading in the NavBar.html page. This code is at the top of every single standard page-->
+   <script>
+    $(function() {
+       $("#IncludeNavBar").load("NavBar.html");
+    });
+ </script>
+ <script>
+  $(function() {
+     $("#IncludeFooter").load("Footer.html");
+  });
+  </script>
+  <!--Following link is used for BootStrap implementation-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!--Following link is used for CSS in index.css-->
+  <link rel="stylesheet" type="text/css"href="Styles/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>ProfilePage</title>
+</head>
+<body>
+    <div id="IncludeNavBar"></div>
+    <section style="background-color: #FFFFFF;">
+        <div class="container py-5">      
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <h5 class="my-3"><%=user.username%></h5>
+                  <% if(user.name) { %>
+                    <p class="text-muted mb-1">Name: <%=user.name%></p>
+                  <% } %>
+                  <% if(user.favoriteexercise) { %>
+                    <p class="text-muted mb-1">Favorite Exercise: <%=user.favoriteexcercise%></p>
+                  <% } %>
+                  <% if(user.fitnessgoal) { %>
+                    <p class="text-muted mb-1">Current Fitness Goal: <%=user.fitnessgoal%></p>
+                  <% } %>
+                  <% if(user.bio) { %>
+                    <p class="text-muted mb-1">Bio: <%=user.bio%></p>
+                  <% } %>
+                </div>
+              </div>
+              <div class="card mb-4 mb-lg-0">
+                <div class="card-body p-0">
+                  <ul class="list-group list-group-flush rounded-3">
+                    <% if(user.facebook) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <p class="mb-0">facebook.com/<%=user.facebook%></p>
+                    </li>
+                    <% } %>
+                    <% if(user.instagram) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <p class="mb-0">Instagram.com/<%=user.instagram%></p>
+                    </li>
+                    <% } %>
+                    <% if(user.twitter) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+            
+                      <p class="mb-0">Twitter.com/<%=user.twitter%></p>
+                    </li>
+                    <% } %>
+                    <% if(user.snapchat) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      
+                      <p class="mb-0">Snapchat.com/<%=user.snapchat%></p>
+                    </li>
+                    <% } %>
+                    <% if(user.spotify) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  
+                      <p class="mb-0">Spotify.com/<%=user.spotify%></p>
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%=user.name%></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%=user.displayemail%></p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Location</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0"><%=user.location%></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                      <p class="mb-4"><span class="text-primary font-italic me-1">Recent Posts</span>
+                      </p>
+                      <% for (post of posts) { %>
+                      <div class="border mt-2" style="background-color: #f0f0f0;">
+                        <div>
+                            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                                <div class="d-flex flex-row align-items-center feed-text px-2">
+                                  <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold"><%=post.username%></span><span class="text-black-50 time"></span></div>
+                                </div>
+                                <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                            </div>
+                        </div>
+                        <div class="p-2 px-3"><span>Exercise: <%=post.exercise%></span></div>
+                        <div class="p-2 px-3"><span>Description: <%=post.description%></span></div>
+                        <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                    </div>
+                    <% } %> 
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                      <p class="mb-4"><span class="text-primary font-italic me-1">Current Challenges</span>
+                      </p>
+                      <% for (challenge of challenges) { %>
+                      <p class="mb-1" style="font-size: .77rem;"><%=challenge.challengename%></p>
+                      <div class="progress rounded" style="height: 5px;">
+                        <div class="progress-bar" role="progressbar" style="width: <%=challenge.progress%>" aria-valuenow=80%>
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <% if(challenge.challengeComplete) { %>
+                        <p class="mb-1" style="font-size: .50rem;">Completed</p>
+                      <% } %> 
+                      <% } %> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <div id="IncludeFooter"></div>
+</body>
+</html>
